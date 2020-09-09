@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: Bagisto Developer Portal
-tagline: Detailed documentation and code examples.
+tagline: Find detailed documentation and code examples.
 actionText: Get Started →
 actionLink: /introduction/
 features:

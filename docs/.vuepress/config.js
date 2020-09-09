@@ -3,6 +3,16 @@ module.exports = {
     title: 'Documentation',
     description: 'Just playing around',
     themeConfig: {
+        smoothScroll: true,
+        lastUpdated: 'Last Updated',
+        repo: 'bagisto/bagisto',
+        repoLabel: 'Contribute to Bagisto',
+        docsRepo: 'bagisto/bagisto-docs',
+        docsDir: 'docs',
+        docsBranch: 'master',
+        editLinks: true,
+        editLinkText: 'Help us improve this page on Github.',
+
         logo: 'https://devdocs.bagisto.com/assets/images/logo.png',
         nav: [
             { text: 'Home', link: '/' },
@@ -17,25 +27,47 @@ module.exports = {
                 collapsable: true,
                 children: [
                     ["introduction/requirements", "Requirements"],
+                    ["introduction/installation", "Installation"],
+                    ["introduction/folders", "Directory structure"],
+                ]
+            },
+            {
+                title: "API",
+                path: "/api/",
+                collapsable: true
+            },            
+            {
+                title: "Advanced topics",
+                path: "/advanced/",
+                collapsable: true,
+                children: [
+                    ["advanced/create_shipping_method", "Create a shipping method"],
+                    ["advanced/create_payment_method", "Create a payment method"],
+                    ["advanced/datagrid", "Data grid"],
+                    ["advanced/events", "Events"],
+                    ["advanced/override-core-model", "Override core models"],
+                    ["advanced/security_practice", "Best Security Practices"],
+                    ["advanced/render_event", "View render event"],
                 ]
             },
             {
                 title: "Package Development ",
-                path: "/packages/",
+                path: "/packages/create",
+                collapsable: true,
+            },            
+            {
+                title: "Themes",
+                path: "/themes",
                 collapsable: true,
                 children: [
-                    ["packages/create", "Create a new package"],
-                    ["packages/backend_menu", "Add a menu to the Backend"],
+                    ["themes/create_theme", "Create a store theme"],
+                    ["themes/create_admin_theme", "Create a admin theme"],
                 ]
             },
             {
-                title: "Themes",
-                path: "/themes/",
+                title: "Translations",
+                path: "/translations/",
                 collapsable: true,
-                children: [
-                    ["themes/backend",  "Create a admin theme"],
-                    ["themes/frontend", "Create a store theme"],
-                ]
             },
         ]
     },
