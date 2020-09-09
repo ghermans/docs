@@ -1,3 +1,7 @@
+---
+title: Create a store theme
+---
+
 # Create a store theme
 
 Please follow the steps mentioned below that how to create a custom theme in Bagisto.

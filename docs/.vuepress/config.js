@@ -13,7 +13,7 @@ module.exports = {
         editLinks: true,
         editLinkText: 'Help us improve this page on Github.',
 
-        logo: 'https://devdocs.bagisto.com/assets/images/logo.png',
+        logo: '../logo.png',
         nav: [
             { text: 'Home', link: '/' },
             { text: 'Extensions', link: 'https://bagisto.com/en/extensions/' },
@@ -28,9 +28,10 @@ module.exports = {
                 children: [
                     ["introduction/requirements", "Requirements"],
                     ["introduction/installation", "Installation"],
-                    ["introduction/folders", "Directory structure"],
+                    ["introduction/upgrade_to_latest_bagisto", "Upgrade Bagisto"],
+                    ["introduction/folders", "Directory structure"]
                 ]
-            },            
+            },
             {
                 title: "Advanced topics",
                 path: "/advanced/",
@@ -42,11 +43,11 @@ module.exports = {
                     ["advanced/events", "Events"],
                     ["advanced/override-core-model", "Override core models"],
                     ["advanced/security_practice", "Best Security Practices"],
-                    ["advanced/render_event", "View render event"],
+                    ["advanced/render_event", "View render event"]
                 ]
             },
             {
-                title: "API",
+                title: "Bagisto Web API",
                 path: "/api/",
                 collapsable: true,
                 children: [
@@ -72,13 +73,21 @@ module.exports = {
                 collapsable: true,
                 children: [
                     ["themes/create_theme", "Create a store theme"],
-                    ["themes/create_admin_theme", "Create a admin theme"],
+                    ["themes/create_admin_theme", "Create a admin theme"]
                 ]
             },
             {
                 title: "Translations",
                 path: "/translations/",
                 collapsable: true,
+            },
+            {
+                title: "User guides",
+                path: "/user_guides/",
+                collapsable: true,
+                children: [
+                    ["/user_guides/cart_rule", "Cart rules"],
+                ]
             },
         ]
     },

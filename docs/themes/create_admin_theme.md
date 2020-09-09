@@ -1,3 +1,7 @@
+---
+title: Create a admin theme
+---
+
 # Create an new admin theme
 
 In the Bagisto root directory go to the **config** folder and open `themes.php`.  
