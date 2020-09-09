@@ -12,7 +12,7 @@ Please follow the steps mentioned below that how to create a custom theme in Bag
         - database/
         - packages/Webkul
 
-<!-- ![theme-file-location](assets/images/Bagisto_Docs_Images/theme/theme-file-location.png){: width="30%" height="50%" .center} -->
+<!-- ![theme-file-location](../assets/images//theme/theme-file-location.png){: width="30%" height="50%" .center} -->
 
 - Check contents of **_themes.php_** file, it holds all necessary information of creating a custom theme.
 
@@ -39,7 +39,7 @@ return [
 ];
 ```
 
-<!-- ![theme-file](assets/images/Bagisto_Docs_Images/theme/theme-file-code.png){: .screenshot-dimension .center} -->
+<!-- ![theme-file](../assets/images//theme/theme-file-code.png){: .screenshot-dimension .center} -->
 
 Let’s go through the parameters of **_themes.php_** file. Because understanding those parameters will help you in creating a custom theme.
 
@@ -61,11 +61,11 @@ Let’s go through the parameters of **_themes.php_** file. Because understandin
 
            - <b>parent:</b> This is a magic parameter that you can find in the commented code below the sub-array 'default'. Using            this parameter you can make use of existing themes inside Bagisto and just customize them even further. This        parameter will take the value of the 'name’ parameter listed in the 3rd point above.
 
-<!-- ![bliss-theme](assets/images/Bagisto_Docs_Images/theme/bliss-array.png){: .screenshot-dimension .center} -->
+<!-- ![bliss-theme](../assets/images//theme/bliss-array.png){: .screenshot-dimension .center} -->
 
 Finally, define your own paths and name of your custom theme inside **_themes.php_** file, and start creating view files. Do not forget to cover all get routes of shop package having a parameter called 'view’. You can get route file of shop package located at `packages/Webkul/Shop/src/Http/routes.php`
 
-<!-- ![theme-route-file-location](assets/images/Bagisto_Docs_Images/theme/theme-routes.png){: width="30%" height="50%" .center} -->
+<!-- ![theme-route-file-location](../assets/images//theme/theme-routes.png){: width="30%" height="50%" .center} -->
 
 Make sure the name of the blade file should be the same one as passed in this GET route file like this:
 
@@ -77,6 +77,6 @@ Make sure the name of the blade file should be the same one as passed in this GE
     ])->name('shop.categories.index');
 ```
 
-<!-- ![theme-route](assets/images/Bagisto_Docs_Images/theme/route.png){: .screenshot-dimension .center} -->
+<!-- ![theme-route](../assets/images//theme/route.png){: .screenshot-dimension .center} -->
 
 For all views check all GET routes as they hold a view parameter with the value of view to be used.

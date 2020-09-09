@@ -30,11 +30,6 @@ module.exports = {
                     ["introduction/installation", "Installation"],
                     ["introduction/folders", "Directory structure"],
                 ]
-            },
-            {
-                title: "API",
-                path: "/api/",
-                collapsable: true
             },            
             {
                 title: "Advanced topics",
@@ -48,6 +43,22 @@ module.exports = {
                     ["advanced/override-core-model", "Override core models"],
                     ["advanced/security_practice", "Best Security Practices"],
                     ["advanced/render_event", "View render event"],
+                ]
+            },
+            {
+                title: "API",
+                path: "/api/",
+                collapsable: true,
+                children: [
+                    ["api/customer_addresses", "Addresses"],
+                    ["api/categories", "Categories"],
+                    ["api/customers", "Customers"],
+                    ["api/customer_review", "Customer reviews"],
+                    ["api/invoice_shipment", "Invoices & Shipments"],
+                    ["api/order", "Orders"],
+                    ["api/products", "Products"],
+                    ["api/product_review", "Product reviews"],
+                    ["api/cart", "Shopping cart"]
                 ]
             },
             {

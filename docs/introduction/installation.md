@@ -1,87 +1,74 @@
-# Installation & Configuration <a id="installation"></a>:
+# Installation
 
-1. Try our new GUI installer to install Bagisto:
+## Use our GUI installer
+- [Download bagisto](https://bagisto.com/en/download/)
+- Extract the contents of zip and execute the project in your browser for example:
+    - `https://example.com/`
+    - `https://localhost/bagisto/public`
+    - `https://example.com/public`
 
-    - [Download bagisto](https://bagisto.com/en/download/)
-    - Extract the contents of zip and execute the project in browser:
 
-      `http(s)://localhost/bagisto/public`
+## Install Bagisto using command line:
 
-        or
+- Get Bagisto by using composer
 
-      `http(s)://example.com/public`
+```sh
+composer create-project bagisto/bagisto-standard
+```
+  
+- Start the installation script
+```sh
+php artisan bagisto:install
+```
 
-2. Install Bagisto using command line:
+### Features of this command
+::: warning
+It will check if the .env file is already created or not.  
+**Only if the .env file already exists then please provide the following details**
+::: 
 
-    - Execute these commands below as in their order
+```
+-   APP_TIMEZONE
+-   APP_LOCALE
+-   LOG_CHANNEL
+-   APP_CURRENCY
+-   DB_DATABASE
+-   DB_USERNAME
+-   DB_PASSWORD
+```
 
-    ```
-      1. composer create-project bagisto/bagisto-standard
-    ```
+- After asking the following options it will start the installation
+```sh
+-  Please select the default locale or press enter to continue [en]: 
+-  Please enter the default timezone [Asia/Kolkata]:
+-  Please enter the default currency [USD]: 
+-  What is the database name to be used by bagisto?: 
+-  What is your database username?:
+-  What is your database password?:
+```
 
-    - Now configure your database:
+# Start using Bagisto
 
-      If the command above was completed successfully, then you'll find the directory **bagisto** and all of its available code.
+### On a production server
 
-      Find file **_.env_** inside the  **bagisto** directory and set the environment variables listed below:
+- Go to your domain for example:
+    - `https://example.com/`
+    - `https://localhost/bagisto/public`
+    - `https://example.com/public`
 
-        - APP_URL
-        - DB_CONNECTION
-        - DB_HOST
-        - DB_PORT
-        - DB_DATABASE
-        - DB_USERNAME
-        - DB_PASSWORD
+### On your local device
 
-    - Although, mailer environment variables are also required to be set up as **Bagisto** requires emails to send to customers and admins for various built-in functionalities.
+```sh
+php artisan serve
+```
 
-    ```
-    2. php artisan migrate
-    ```
+### How to login as admin:
 
-    ```
-    3. php artisan db:seed
-    ```
+Go to `https://example.com/admin/`, in case you used `php artisan bagisto:install` use the following credentials
+```
+email: admin@example.com
+password: admin123
+```
 
-    ```
-    4. php artisan vendor:publish
-      -> Press 0 and then press enter to publish all assets and
-      configurations.
-    ```
-
-    ```
-    5. php artisan storage:link
-    ```
-
-    ```
-    6. composer dump-autoload
-    ```
-
-3. To execute Bagisto:
-
-  - On server:
-
-    ```
-      Open the specified entry point in your hosts file in browser
-      or make entry in hosts file if not done.
-    ```
-
-  - On local:
-
-    ```
-      php artisan serve
-    ```
-
-  - How to login as admin:
-
-      `http(s)://example.com/admin/login`
-
-         email: admin@example.com
-
-         password: admin123
-
-  - How to login as customer:
-
-      You can directly register as a customer and then login.
-
-      `http(s)://example.com/customer/register`
+### How to login as customer
+You can directly register `https://example.com/customer/register` as a customer and then login.
