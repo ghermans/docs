@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Create a new package | Documentation</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    
+    <meta name="description" content="Just playing around">
+    <link rel="preload" href="/bagisto-docs/assets/css/0.styles.78fcab50.css" as="style"><link rel="preload" href="/bagisto-docs/assets/js/app.3b30ccb2.js" as="script"><link rel="preload" href="/bagisto-docs/assets/js/2.6ecef43c.js" as="script"><link rel="preload" href="/bagisto-docs/assets/js/11.381f9b07.js" as="script"><link rel="prefetch" href="/bagisto-docs/assets/js/10.54c82141.js"><link rel="prefetch" href="/bagisto-docs/assets/js/12.e8bfdd93.js"><link rel="prefetch" href="/bagisto-docs/assets/js/13.7dac8c77.js"><link rel="prefetch" href="/bagisto-docs/assets/js/14.9228157f.js"><link rel="prefetch" href="/bagisto-docs/assets/js/15.f23d2a1d.js"><link rel="prefetch" href="/bagisto-docs/assets/js/3.53a811b4.js"><link rel="prefetch" href="/bagisto-docs/assets/js/4.f7b82273.js"><link rel="prefetch" href="/bagisto-docs/assets/js/5.1082bc8e.js"><link rel="prefetch" href="/bagisto-docs/assets/js/6.11dcca11.js"><link rel="prefetch" href="/bagisto-docs/assets/js/7.b57a760b.js"><link rel="prefetch" href="/bagisto-docs/assets/js/8.24be85e6.js"><link rel="prefetch" href="/bagisto-docs/assets/js/9.3e59ba7d.js">
+    <link rel="stylesheet" href="/bagisto-docs/assets/css/0.styles.78fcab50.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/bagisto-docs/" class="home-link router-link-active"><img src="https://devdocs.bagisto.com/assets/images/logo.png" alt="Documentation" class="logo"> <span class="site-name can-hide">Documentation</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/bagisto-docs/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="https://bagisto.com/en/extensions/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Extensions
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://forums.bagisto.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Community Forum
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/bagisto-docs/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="https://bagisto.com/en/extensions/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Extensions
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://forums.bagisto.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Community Forum
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/bagisto-docs/" aria-current="page" class="sidebar-link">Home</a></li><li><section class="sidebar-group collapsable depth-0"><a href="/bagisto-docs/introduction/" class="sidebar-heading clickable"><span>Introduction</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/bagisto-docs/packages/" class="sidebar-heading clickable router-link-active open"><span>Package Development </span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/bagisto-docs/packages/create.html" aria-current="page" class="active sidebar-link">Create a new package</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/bagisto-docs/packages/create.html#prepare-your-package-folder" class="sidebar-link">Prepare your package folder.</a></li><li class="sidebar-sub-header"><a href="/bagisto-docs/packages/create.html#create-your-service-provider" class="sidebar-link">Create your service provider</a></li><li class="sidebar-sub-header"><a href="/bagisto-docs/packages/create.html#step-4" class="sidebar-link">Step-4</a></li><li class="sidebar-sub-header"><a href="/bagisto-docs/packages/create.html#step-5" class="sidebar-link">Step-5</a></li><li class="sidebar-sub-header"><a href="/bagisto-docs/packages/create.html#step-6" class="sidebar-link">Step-6</a></li></ul></li><li><a href="/bagisto-docs/packages/backend_menu.html" class="sidebar-link">Add a menu to the Backend</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/bagisto-docs/themes/" class="sidebar-heading clickable"><span>Themes</span> <span class="arrow right"></span></a> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="create-a-new-package"><a href="#create-a-new-package" class="header-anchor">#</a> Create a new package</h1> <h2 id="prepare-your-package-folder"><a href="#prepare-your-package-folder" class="header-anchor">#</a> Prepare your package folder.</h2> <ul><li>Inside <strong>packages</strong> folder, create a folder with your company name or namespace and inside it create a folder with your package name.
+e.g., here namespace is specified as ACME</li></ul> <blockquote><p><code>packages/ACME/HelloWorld</code></p></blockquote> <ul><li>Inside your package create a file named <strong><em>package.json</em></strong> and a folder named <strong>src</strong>, we will use it later.</li></ul> <h2 id="create-your-service-provider"><a href="#create-your-service-provider" class="header-anchor">#</a> Create your service provider</h2> <ul><li><p>Inside <strong>src</strong> folder create a folder named as <strong>Providers</strong> and under it create a file named as <strong><em>PackagenameServiceProvider.php</em></strong>.</p> <p>Ex – HelloWorldServiceProvider.php</p> <p>The Service Provider consists of two methods.</p> <ul><li><a href="https://laravel.com/docs/7.x/providers#the-boot-method" target="_blank" rel="noopener noreferrer">Boot Method<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://laravel.com/docs/7.x/providers#the-register-method" target="_blank" rel="noopener noreferrer">Register Method<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul> <div class="language-php extra-class"><pre class="language-php"><code>     <span class="token keyword">namespace</span> <span class="token package">ACME<span class="token punctuation">\</span>HelloWorld<span class="token punctuation">\</span>Providers</span><span class="token punctuation">;</span>
+
+     <span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span class="token punctuation">\</span>ServiceProvider</span><span class="token punctuation">;</span>
+
+     <span class="token comment">/**
+     * HelloWorld service provider
+     *
+     * @author    Jane Doe &lt;janedoe@gmail.com&gt;
+     * @copyright 2018 Webkul Software Pvt Ltd (http://www.webkul.com)
+     */</span>
+    <span class="token keyword">class</span> <span class="token class-name">HelloWorldServiceProvider</span> <span class="token keyword">extends</span> <span class="token class-name">ServiceProvider</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">/**
+        * Bootstrap services.
+        *
+        * @return void
+        */</span>
+        <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">/**
+        * Register services.
+        *
+        * @return void
+        */</span>
+        <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">register</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h2 id="step-4"><a href="#step-4" class="header-anchor">#</a> Step-4</h2> <ul><li><p>Now, to register the service provider, go to the <strong><em>app.php</em></strong> file inside the <strong>config</strong> folder &amp; add your service provider inside the ‘providers’ array.</p> <div class="language-php extra-class"><pre class="language-php"><code>    <span class="token constant">ACME</span>\<span class="token package">HelloWorld<span class="token punctuation">\</span>Providers<span class="token punctuation">\</span>HelloWorldServiceProvider</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+</code></pre></div></li></ul> <h2 id="step-5"><a href="#step-5" class="header-anchor">#</a> Step-5</h2> <ul><li><p>Now, we need to add our package to the <strong><em>composer.json</em></strong> file of project root for autoloading in psr-4.</p> <div class="language-php extra-class"><pre class="language-php"><code>        <span class="token double-quoted-string string">&quot;ACME\\HelloWorld\\&quot;</span><span class="token punctuation">:</span> <span class="token double-quoted-string string">&quot;packages/ACME/HelloWorld/src&quot;</span>
+</code></pre></div></li></ul> <h2 id="step-6"><a href="#step-6" class="header-anchor">#</a> Step-6</h2> <ul><li><p>Now, we are going to add routing &amp; views in our package.</p> <ol><li>For routes: create an <strong>Http</strong> folder inside <strong>src</strong> folder of your package &amp; inside <strong>Http</strong> create a file name as <strong><em>routes.php</em></strong> like <code>YourPackage/src/Http/routes.php</code>. In this file, we can create routes for the package.</li></ol> <p>Now, we need to register our route file to service provider’s boot method i.e. <strong><em>HelloWorldServiceProvider.php</em></strong></p></li></ul> <div class="language-php extra-class"><pre class="language-php"><code>        <span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+        <span class="token keyword">namespace</span> <span class="token package">ACME<span class="token punctuation">\</span>HelloWorld<span class="token punctuation">\</span>Providers</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span class="token punctuation">\</span>ServiceProvider</span><span class="token punctuation">;</span>
+
+        <span class="token comment">/**
+        * HelloWorld service provider
+        *
+        * @copyright 2018 Webkul Software Pvt Ltd (http://www.webkul.com)
+        */</span>
+        <span class="token keyword">class</span> <span class="token class-name">HelloWorldServiceProvider</span> <span class="token keyword">extends</span> <span class="token class-name">ServiceProvider</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment">/**
+            * Bootstrap services.
+            *
+            * @return void
+            */</span>
+            <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">include</span> <span class="token constant">__DIR__</span> <span class="token punctuation">.</span> <span class="token single-quoted-string string">'/../Http/routes.php'</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token comment">/**
+            * Register services.
+            *
+            * @return void
+            */</span>
+            <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">register</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+</span></code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/bagisto-docs/introduction/requirements.html" class="prev">
+        Requirements
+      </a></span> <span class="next"><a href="/bagisto-docs/packages/backend_menu.html">
+        Add a menu to the Backend
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/bagisto-docs/assets/js/app.3b30ccb2.js" defer></script><script src="/bagisto-docs/assets/js/2.6ecef43c.js" defer></script><script src="/bagisto-docs/assets/js/11.381f9b07.js" defer></script>
+  </body>
+</html>

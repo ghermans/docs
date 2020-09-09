@@ -1,0 +1,4 @@
+# Introduction
+**Bagisto** is a customized E-Commerce framework designed on some of the hottest opensource technologies such as Laravel, a PHP framework and Vue.js, a progressive Javascript framework.
+
+**Bagisto** is a viable option to reduce your time, cost and workforce for building online stores or migrating from a physical store to an online platform. It suitable for all small or large E-Commerce business demands, with a simple set-up procedure. Built on top of Laravel, it is equipped with easy product information management. The framework is very flexible and easy to use even for non-tech users.
