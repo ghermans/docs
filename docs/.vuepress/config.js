@@ -1,7 +1,7 @@
 module.exports = {
-    base: '/bagisto-docs/',
+    base: '/',
     title: 'Documentation',
-    description: 'Just playing around',
+    description: 'Bagisto Developer Portal',
     themeConfig: {
         smoothScroll: true,
         lastUpdated: 'Last Updated',
