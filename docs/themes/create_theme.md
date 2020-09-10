@@ -3,10 +3,10 @@ title: Create a store theme
 ---
 
 # Create a store theme
-
 Please follow the steps mentioned below that how to create a custom theme in Bagisto.
 
-- Go to your project’s root directory and check for **config** folder. Inside **config** folder, you will find a file called **_themes.php_** like directory below:
+Go to your project’s root directory and check for **config** folder.  
+Inside **config** folder, you will find a file called **_themes.php_** like directory below:
 
         - app/
         - bin/
@@ -18,7 +18,7 @@ Please follow the steps mentioned below that how to create a custom theme in Bag
 
 <!-- ![theme-file-location](../assets/images//theme/theme-file-location.png){: width="30%" height="50%" .center} -->
 
-- Check contents of **_themes.php_** file, it holds all necessary information of creating a custom theme.
+Check contents of **_themes.php_** file, it holds all necessary information of creating a custom theme.
 
 ```php
 <?php

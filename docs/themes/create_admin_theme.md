@@ -22,8 +22,8 @@ Now search for the keys `admin-default` and `admin-themes`. It will look like th
   ];
 ```
 
-|Key| Description|
-| --- | -------- |
+| Key | Description|
+| --- | ---------- |
 | admin-default | is used to set the current theme. |
 | admin-themes | is used to store a list of themes |
   
