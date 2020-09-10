@@ -1,11 +1,10 @@
 # Create a new shipping method
 
-![Pencil Icon](assets/images/icons/Icon-Pencil-Large.svg){:.pencil-icon}
-[edit on github](https://github.com/bagisto/bagisto-docs/blob/master/create_shipping_method.md){:.edit-github target="\_blank"}
 
-I hope that now you know how to create a package, if not refer to [Package development](create_package.md){: target="\_blank" .link-color}.
+I hope that now you know how to create a package, if not refer to [Package development](create_package.md).
+In this article, we will understand how to create a shipping method.
 
-In this article, we will understand how to create a shipping method. You can create a shipping method in two ways.
+You can create a shipping method in two ways.
 
 1. By using Bagisto Package Generator (**Recommended**)
 2. By manually setting up all files (**Expert Level**)
