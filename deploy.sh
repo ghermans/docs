@@ -12,6 +12,6 @@ cd docs/.vuepress/dist
 git init
 git add -A
 git commit -m 'Deploy docs to GitHub'
-git push -f git@github.com:bagisto/bagisto-docs.git docs:gh-pages
+git push -f git@github.com:bagisto-europe/docs.git master:gh-pages
 
 cd -
