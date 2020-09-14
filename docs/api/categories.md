@@ -2,47 +2,73 @@
 
 To get all the categories from Bagisto according to pagination, you have to place a request by using the API Call below with the resource i.e. `categories` :
 
-## Get Categories With Pagination: <a id="get-categories-with-pagination"></a>
+::: details Request Example
+```php
+$url = "https://example.com/api/categories";
+$ch = curl_init();
 
-> _https://example.com/public/api/categories_
+curl_setopt($ch, CURLOPT_URL, $url);
+// Prevent cURL from trying to verify the SSL certificate (only in dev environments)
+curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, FALSE);
 
-> _https://example.com/public/api/categories?page=1_
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-::: warning
- _If you didn't use the page(?page=x) filter, then it returns the data of the first page by default._
+$output = curl_exec($ch);
+$data   = json_decode($output);
+
+curl_close($ch);
+
+print_r($data);
+```
 :::
 
-##### Response:
-
+::: details Response
 ```json
 {
     "data": [
         {
-            "id": 9,
-            "code": null,
-            "name": "Reading Books",
-            "slug": "reading-books",
-            "display_mode": "products_and_description",
-            "description": "<p>Reading Books</p>",
-            "meta_title": "Reading Books",
-            "meta_description": "Reading Books",
-            "meta_keywords": "Reading Books",
-            "status": 1,
-            "image_url": null,
-            "created_at": {},
-            "updated_at": {}
-            },
-            {...},
-            {...},
-            {...},
-        ],
-        "links": {},
-        "meta": {}
-        }
+            "id":3,
+            "code":null,
+            "name":"Laptops",
+            "slug":"laptops",
+            "display_mode":"products_only",
+            "description":"",
+            "meta_title":"Laptops",
+            "meta_description":"",
+            "meta_keywords":"",
+            "status":1,
+            "image_url":null,
+            "additional":null,
+            "created_at":"2020-09-08T23:41:24.000000Z",
+            "updated_at":"2020-09-08T23:41:24.000000Z"
+        },
+    ],
+    "links":
+    {
+        "first":"https://example.com/api/categories?page=1",
+        "last":"https://example.com/api/categories?page=1",
+        "prev":null,
+        "next":null
+    },
+    "meta": {
+        "current_page":1,
+        "from":1,
+        "last_page":1,
+        "path":"https://example.com/api/categories",
+        "per_page":10,
+        "to":3,
+        "total":3
+    }
+}
 ```
-##### Explanation:
 
-- In the response above, you will find the three Objects with the indexes mentioned below:
+::: tip
+ If you didn't use the page(?page=x) filter, then it returns the data of the first page by default.
+:::
+
+
+### Explanation:
+In the response above, you will find the three Objects with the indexes mentioned below:
   1. data
   2. link
   3. meta
@@ -55,7 +81,7 @@ Under the data object, you will find the collection of many objects which repres
 
 - Under link object, you will find four indexes, which will be used only according to pagination:
 
-![bagisto_cat_link](../assets/images/api/bagisto_cat_link.jpg){:class="screenshot-dimension center"}
+![bagisto_cat_link](../assets/images/api/bagisto_cat_link.jpg)
 
 **1. `first`: It will represent the first url link of the called API with filter variable `page:first_page`**
 
@@ -123,7 +149,7 @@ from = (5 * (2-1)) + 1  i.e. 6
 
 - For Example: If you called categories API with page filter 2 `i.e. ?page=2` and a limit filter of 5 `i.e. ?limit=5`, then `to` will contain the value `10`.
 
-> _https://example.com/public/api/categories?limit=5&page=2_
+> https://example.com/public/api/categories?limit=5&page=2
 
 ```
 limit = 5
