@@ -1,31 +1,71 @@
 # Create a payment method
-We hope that now you know how to create a package, if not refer to [Package development](../packages/createe.md).
 
-Bagisto eases the task of creating payment methods so a novice developer or professional developer can easily create payment methods.  
-As the diversity of payment methods provide the options to customer for payment when they proceed to checkout.  
-On another perspective, multiple payment methods are a great strategy to reach out to the global marketplace.  
+We hope that now you know how to create a package, if not refer to [package development](../packages/create.md).
 
-In this article, we will explain how to create a payment method.  
-You can create a payment method in two ways.
+Bagisto eases the task of creating payment methods. So, a novice developer or a professional developer can easily create payment methods.
+
+As the diversity of payment methods provide the options to customer for payment when they proceed to checkout.
+
+On another perspective, multiple payment methods are a great strategy to reach out to the global marketplace.
+
+In this section, we will explain how to create a payment method. You can create a payment method in two ways.
 
 1. By using Bagisto Package Generator (**Recommended**)
 2. By manually setting up all files (**Expert Level**)
 
 ## 1. By using Bagisto Package Generator
 
-For creating payment method package, you need to use this command in bagisto root directory,
+- For creating payment method package, you need to use these commands in bagisto root directory,
 
-~~~php
-php artisan package:make-payment-method ModuleName
-~~~
+  - If package directory not present,
 
-If somehow package directory already present then you can use force command as well. For that you just need to pass the '**--force**' command.
+    ~~~php
+    php artisan package:make-payment-method ACME/Stripe
+    ~~~
 
-~~~php
-php artisan package:make-payment-method ModuleName --force
-~~~
+  - If somehow package directory already present then you can use force command as well. For that you just need to pass the '**--force**' command.
 
-This will generate whole directory structures. You don't need to do manually.
+    ~~~php
+    php artisan package:make-payment-method ACME/Stripe --force
+    ~~~
+
+  - This will generate whole directory structures. You don't need to do manually.
+
+- After that, you need to register your service provider in `config/app.php`.
+
+  ~~~php
+  <?php
+
+  return [
+      ...
+      'providers' => [
+          ...
+          ACME\Stripe\Providers\StripeServiceProvider::class,
+          ...
+      ]
+      ...
+  ];
+  ~~~
+
+- After that, add you payment method namespace in `psr-4` key in `composer.json` file for auto loading.
+
+  ~~~json
+  "autoload": {
+      ...
+      "psr-4": {
+          ...
+          "ACME\\Stripe\\": "packages/ACME/Stripe/src"
+          ...
+      }
+      ...
+  }
+  ~~~
+
+- Run `composer dump-autoload`.
+
+- After that run `php artisan config:cache`.
+
+- This will setup the configuration in the admin panel. Now start creating routes, controllers and make some cool stuff.
 
 ## 2. By manually setting up all files
 
