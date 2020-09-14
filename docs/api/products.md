@@ -1,50 +1,261 @@
 # Products
 
-To get all the products according to pagination, you have to place a request by using the API Call below with the resource i.e. `products` :
+To get all the products you have to place a request by using the API endpoint `products`.
+
+::: details Request Example
+```php
+$url = "https://example.com/api/products";
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, $url);
+// Prevent cURL from trying to verify the SSL certificate (only in dev environments)
+curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, FALSE);
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+$output = curl_exec($ch);
+$data   = json_decode($output);
+
+curl_close($ch);
+
+print_r($data);
+```
+:::
+
+::: details Response
+```json
+{
+  "data": [
+    {
+      "id": 3,
+      "type": "simple",
+      "name": "Lenovo IdeaPad Yoga 500 15 Hybrid (2-in-1) White",
+      "url_key": "lenovo-ideapad-yoga-500-15-hybrid-2-in-1-white",
+      "price": "600.0000",
+      "formated_price": "$600.00",
+      "short_description": "<p>Intel Core i7-6500U Processor (4M Cache, up to 3.10 GHz), 8GB RAM, 1000GB HDD, 14.0\" FHD (1920x1080) MT, Intel HD Graphics 520 + NVIDIA GeForce 940M, Windows 10 Home 64</p>",
+      "description": "<p><strong class=\"tip-anchor tip-anchor-text tip-anchor-wrap\">Lenovo IdeaPad Yoga 500 15 Hybrid (2-in-1) White 15.6\" 1920 x 1080 pixels Touchscreen 6th gen Intel&reg; Core&trade; i7 8 GB DDR3L-SDRAM 1000 GB HDD NVIDIA&reg; GeForce&reg; GT 940M Windows 10 Home: </strong></p>\r\n<p class=\"description prod_long_description\"><strong>360&ordm; Flip-and-Fold Design</strong><br /> A PC when you need it, a tablet when you want it, and more. Easily change between four modes &mdash; Laptop, Stand, Tent, and Tablet. The secret: Yoga 500's unique design and touchscreen display. It allows the screen to flip around 360&ordm;, which means you can select the mode you use based on what you choose to Do.<br /> <br /> <strong>Performance for Work and Play</strong><br /> With the latest Intel&reg; Core&trade; i Series processors, you have the power to play, create, entertain, or inspire. Enjoy powerful performance and vibrant visuals to multitask with ease, amazing battery life to keep up with you, and built-in security features to help keep your data safer.<br /> <br /> <strong>Up to Windows 8.1</strong><br /> Built for business. Built for life. Windows 8.1 brings together everything you do across all your devices &mdash; whether at home, at work, or on the go.<br /> <br /> <strong>Ultra Thin, Light, &amp; Portable</strong><br /> Starting at a mere 4.3 lbs and just 2.15cm (0.85) thin, the Yoga 500 is ultra portable &mdash; it's perfect for doers on the go. And with up to 8 hours on a standard battery, you can go all day without recharging.<br /> <br /> <strong>Harmony</strong><br /> Lenovo Harmony adapts to you by intuitively optimizing settings, making app recommendations by mode, and sharing statistics about how you use your device.<br /> <br /> <strong>Stereo Speakers With Dolby&reg; Home Theater&reg;</strong><br /> The Yoga 500's speakers deliver rich stereo sound, while Dolby&reg; Home Theater&reg; provides an immersive audio experience.<br /> <br /> <strong>McAfee LiveSafe&reg; Free Trial</strong><br /> Keep your entire digital life secure with the comprehensive protection afforded by McAfee LiveSafe software. LiveSafe protects cross-device, through the cloud, and locally to ensure total security for your data and identity. Enjoy a free 30-day trial with purchase. Or, upgrade to the full version during the purchase process and enjoy peace-of-mind security from day one.<br /> <br /> <strong>Lenovo DOit Apps</strong><br /> Do more with your Yoga 500 with premium Lenovo applications like SHAREit, which lets you share files quickly without network charges or a WiFi connection; and SYNCit, which backs up and restores your contacts and SMSs.</p>",
+      "sku": "5626",
+      "images": [
+        {
+          "id": 4,
+          "path": "product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+          "url": "https://example.com/storage/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+          "original_image_url": "https://example.com/storage/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+          "small_image_url": "https://example.com/cache/small/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+          "medium_image_url": "https://example.com/cache/medium/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+          "large_image_url": "https://example.com/cache/large/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg"
+        }
+      ],
+      "base_image": {
+        "small_image_url": "https://example.com/cache/small/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+        "medium_image_url": "https://example.com/cache/medium/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+        "large_image_url": "https://example.com/cache/large/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+        "original_image_url": "https://example.com/cache/original/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg"
+      },
+      "variants": [],
+      "in_stock": true,
+      "reviews": {
+        "total": 0,
+        "total_rating": 0,
+        "average_rating": 0,
+        "percentage": []
+      },
+      "is_saved": false,
+      "created_at": "2020-09-09 03:31:47",
+      "updated_at": "2020-09-09 03:31:47"
+    }
+  ],
+  "links": {
+    "first": "https://example.com/api/products?page=1",
+    "last": "https://example.com/api/products?page=1",
+    "prev": null,
+    "next": null
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "path": "https://example.com/api/products",
+    "per_page": 9,
+    "to": 3,
+    "total": 3
+  }
+}
+```
+:::
 
 ## Get Products With Pagination
 
-> _https://example.com/public/api/products_
+::: details Request Example
+```php
+$url = "https://example.com/api/products?page=1";
+$ch  = curl_init();
 
-> _https://example.com/public/api/products?page=1_
+curl_setopt($ch, CURLOPT_URL, $url);
+// Prevent cURL from trying to verify the SSL certificate (only in dev environments)
+curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, FALSE);
 
-::: warning
- _If you didn't use the page(?page=x) filter, then it returns the data of the first page by default_.
-:::
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-##### Response:
-```json
-{
-    "data": [
-        {
-            "id": 1,
-            "type": "simple",
-            "name": "Leather Shoes",
-            "url_key": "leather-shoes",
-            "price": "50.0000",
-            "formated_price": "$50.00",
-            "short_description": null,
-            "description": "<p>Leather Shoes</p>",
-            "sku": "men-leather-shoes",
-            "images": [],
-            "base_image": {},
-            "variants": [],
-            "in_stock": true,
-            "reviews": {},
-            "is_saved": false,
-            "created_at": "2019-05-21 12:37:06",
-            "updated_at": "2019-05-21 12:37:06"
-        },
-        {...}
-    ],
-    "links": {},
-    "meta": {}
-}
+$output = curl_exec($ch);
+$data   = json_decode($output);
+
+curl_close($ch);
+
+print_r($data);
 ```
 
-##### Explanation:
+::: tip
+ If you didn't use the page(?page=x) filter, then it returns the data of the first page by default.
+:::
 
-- In the response above, you will find the three Objects with the indexes mentioned below:
+
+
+::: details Response
+```json
+{
+  "data": [
+    {
+      "id": 3,
+      "type": "simple",
+      "name": "Lenovo IdeaPad Yoga 500 15 Hybrid (2-in-1) White",
+      "url_key": "lenovo-ideapad-yoga-500-15-hybrid-2-in-1-white",
+      "price": "600.0000",
+      "formated_price": "$600.00",
+      "short_description": "<p>Intel Core i7-6500U Processor (4M Cache, up to 3.10 GHz), 8GB RAM, 1000GB HDD, 14.0\" FHD (1920x1080) MT, Intel HD Graphics 520 + NVIDIA GeForce 940M, Windows 10 Home 64</p>",
+      "description": "<p><strong class=\"tip-anchor tip-anchor-text tip-anchor-wrap\">Lenovo IdeaPad Yoga 500 15 Hybrid (2-in-1) White 15.6\" 1920 x 1080 pixels Touchscreen 6th gen Intel&reg; Core&trade; i7 8 GB DDR3L-SDRAM 1000 GB HDD NVIDIA&reg; GeForce&reg; GT 940M Windows 10 Home: </strong></p>\r\n<p class=\"description prod_long_description\"><strong>360&ordm; Flip-and-Fold Design</strong><br /> A PC when you need it, a tablet when you want it, and more. Easily change between four modes &mdash; Laptop, Stand, Tent, and Tablet. The secret: Yoga 500's unique design and touchscreen display. It allows the screen to flip around 360&ordm;, which means you can select the mode you use based on what you choose to Do.<br /> <br /> <strong>Performance for Work and Play</strong><br /> With the latest Intel&reg; Core&trade; i Series processors, you have the power to play, create, entertain, or inspire. Enjoy powerful performance and vibrant visuals to multitask with ease, amazing battery life to keep up with you, and built-in security features to help keep your data safer.<br /> <br /> <strong>Up to Windows 8.1</strong><br /> Built for business. Built for life. Windows 8.1 brings together everything you do across all your devices &mdash; whether at home, at work, or on the go.<br /> <br /> <strong>Ultra Thin, Light, &amp; Portable</strong><br /> Starting at a mere 4.3 lbs and just 2.15cm (0.85) thin, the Yoga 500 is ultra portable &mdash; it's perfect for doers on the go. And with up to 8 hours on a standard battery, you can go all day without recharging.<br /> <br /> <strong>Harmony</strong><br /> Lenovo Harmony adapts to you by intuitively optimizing settings, making app recommendations by mode, and sharing statistics about how you use your device.<br /> <br /> <strong>Stereo Speakers With Dolby&reg; Home Theater&reg;</strong><br /> The Yoga 500's speakers deliver rich stereo sound, while Dolby&reg; Home Theater&reg; provides an immersive audio experience.<br /> <br /> <strong>McAfee LiveSafe&reg; Free Trial</strong><br /> Keep your entire digital life secure with the comprehensive protection afforded by McAfee LiveSafe software. LiveSafe protects cross-device, through the cloud, and locally to ensure total security for your data and identity. Enjoy a free 30-day trial with purchase. Or, upgrade to the full version during the purchase process and enjoy peace-of-mind security from day one.<br /> <br /> <strong>Lenovo DOit Apps</strong><br /> Do more with your Yoga 500 with premium Lenovo applications like SHAREit, which lets you share files quickly without network charges or a WiFi connection; and SYNCit, which backs up and restores your contacts and SMSs.</p>",
+      "sku": "5626",
+      "images": [
+        {
+          "id": 4,
+          "path": "product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+          "url": "https://example.com/storage/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+          "original_image_url": "https://example.com/storage/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+          "small_image_url": "https://example.com/cache/small/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+          "medium_image_url": "https://example.com/cache/medium/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+          "large_image_url": "https://example.com/cache/large/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg"
+        }
+      ],
+      "base_image": {
+        "small_image_url": "https://example.com/cache/small/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+        "medium_image_url": "https://example.com/cache/medium/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+        "large_image_url": "https://example.com/cache/large/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg",
+        "original_image_url": "https://example.com/cache/original/product/3/X95JzibrJRttMK2anYdryf2lsvBjDTkuVitV3go8.jpeg"
+      },
+      "variants": [],
+      "in_stock": true,
+      "reviews": {
+        "total": 0,
+        "total_rating": 0,
+        "average_rating": 0,
+        "percentage": []
+      },
+      "is_saved": false,
+      "created_at": "2020-09-09 03:31:47",
+      "updated_at": "2020-09-09 03:31:47"
+    },
+    {
+      "id": 2,
+      "type": "simple",
+      "name": "DELL Inspiron 5486 Hybrid (2-in-1) Black",
+      "url_key": "dell-inspiron-5486-hybrid-2-in-1-black",
+      "price": "919.3100",
+      "formated_price": "$919.31",
+      "short_description": "<p>DELL Inspiron 5486 Hybrid (2-in-1) Black, Gray 14\" 1920 x 1080 pixels Touchscreen 8th gen Intel&reg; Core&trade; i5 8 GB DDR4-SDRAM 256 GB SSD NVIDIA&reg; GeForce&reg; MX130 Wi-Fi 5 (802.11ac) Windows 10 Home</p>",
+      "description": "<p>DELL Inspiron 5486. Product type: Hybrid (2-in-1), Form factor: Convertible (Folder). Processor family: 8th gen Intel&reg; Core&trade; i5, Processor model: i5-8265U, Processor frequency: 1.6 GHz. Display diagonal: 14\", Display resolution: 1920 x 1080 pixels, Touchscreen. Internal memory: 8 GB, Internal memory type: DDR4-SDRAM. Total storage capacity: 256 GB, Storage media: SSD. On-board graphics adapter model: Intel&reg; UHD Graphics 620. Operating system installed: Windows 10 Home. Product color: Black, Gray</p>",
+      "sku": "5542",
+      "images": [
+        {
+          "id": 3,
+          "path": "product/2/eEG6a1qnbXFKLS2mQmjQrdAHKEsYC4ygxZhi2MWf.jpeg",
+          "url": "https://example.com/storage/product/2/eEG6a1qnbXFKLS2mQmjQrdAHKEsYC4ygxZhi2MWf.jpeg",
+          "original_image_url": "https://example.com/storage/product/2/eEG6a1qnbXFKLS2mQmjQrdAHKEsYC4ygxZhi2MWf.jpeg",
+          "small_image_url": "https://example.com/cache/small/product/2/eEG6a1qnbXFKLS2mQmjQrdAHKEsYC4ygxZhi2MWf.jpeg",
+          "medium_image_url": "https://example.com/cache/medium/product/2/eEG6a1qnbXFKLS2mQmjQrdAHKEsYC4ygxZhi2MWf.jpeg",
+          "large_image_url": "https://example.com/cache/large/product/2/eEG6a1qnbXFKLS2mQmjQrdAHKEsYC4ygxZhi2MWf.jpeg"
+        }
+      ],
+      "base_image": {
+        "small_image_url": "https://example.com/cache/small/product/2/eEG6a1qnbXFKLS2mQmjQrdAHKEsYC4ygxZhi2MWf.jpeg",
+        "medium_image_url": "https://example.com/cache/medium/product/2/eEG6a1qnbXFKLS2mQmjQrdAHKEsYC4ygxZhi2MWf.jpeg",
+        "large_image_url": "https://example.com/cache/large/product/2/eEG6a1qnbXFKLS2mQmjQrdAHKEsYC4ygxZhi2MWf.jpeg",
+        "original_image_url": "https://example.com/cache/original/product/2/eEG6a1qnbXFKLS2mQmjQrdAHKEsYC4ygxZhi2MWf.jpeg"
+      },
+      "variants": [],
+      "in_stock": true,
+      "reviews": {
+        "total": 0,
+        "total_rating": 0,
+        "average_rating": 0,
+        "percentage": []
+      },
+      "is_saved": false,
+      "created_at": "2020-09-09 03:05:20",
+      "updated_at": "2020-09-09 03:05:20"
+    },
+    {
+      "id": 1,
+      "type": "simple",
+      "name": "Adorable Cream Teddy Bear",
+      "url_key": "adorable-cream-teddy-bear",
+      "price": "10.0000",
+      "formated_price": "$10.00",
+      "short_description": "<p>Buy Adorable Cream Teddy Bear online at best price</p>",
+      "description": "<p>Buy Adorable Cream Teddy Bear online at best price</p>",
+      "sku": "80971254",
+      "images": [
+        {
+          "id": 1,
+          "path": "product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+          "url": "https://example.com/storage/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+          "original_image_url": "https://example.com/storage/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+          "small_image_url": "https://example.com/cache/small/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+          "medium_image_url": "https://example.com/cache/medium/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+          "large_image_url": "https://example.com/cache/large/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg"
+        }
+      ],
+      "base_image": {
+        "small_image_url": "https://example.com/cache/small/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+        "medium_image_url": "https://example.com/cache/medium/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+        "large_image_url": "https://example.com/cache/large/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+        "original_image_url": "https://example.com/cache/original/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg"
+      },
+      "variants": [],
+      "in_stock": true,
+      "reviews": {
+        "total": 0,
+        "total_rating": 0,
+        "average_rating": 0,
+        "percentage": []
+      },
+      "is_saved": false,
+      "created_at": "2020-09-09 01:52:02",
+      "updated_at": "2020-09-09 01:52:02"
+    }
+  ],
+  "links": {
+    "first": "https://example.com/api/products?page=1",
+    "last": "https://example.com/api/products?page=1",
+    "prev": null,
+    "next": null
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "path": "https://example.com/api/products",
+    "per_page": 9,
+    "to": 3,
+    "total": 3
+  }
+}
+```
+::: 
+
+### Explanation
+
+In the response above, you will find the three Objects with the indexes mentioned below:
   1. data
   2. link
   3. meta
@@ -175,11 +386,73 @@ You can also filter your store product(s) by using **`filterable attributes quer
 
 If you want the record of any specific product, then you have to provide the product id as as input parameter in API url.
 
-> _https://example.com/public/api/products/1_
+::: details Request Example
+```php
+$url = "https://example.com/public/api/products/1";
+$ch  = curl_init();
 
-![bagisto_prod_id](../assets/images/api/bagisto_prod_id.jpg){:class="screenshot-dimension center"}
+curl_setopt($ch, CURLOPT_URL, $url);
+// Prevent cURL from trying to verify the SSL certificate (only in dev environments)
+curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, FALSE);
 
-**Note**: _Here you will see in the API response `data Object` will only contain the single object of category record_
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+$output = curl_exec($ch);
+$data   = json_decode($output);
+
+curl_close($ch);
+
+print_r($data);
+```
+:::
+
+**Note**: Here you will see in the API response `data Object` will only contain the single object of category record.
+::: details Response
+```json
+{
+  "data": {
+    "id": 1,
+    "type": "simple",
+    "name": "Adorable Cream Teddy Bear",
+    "url_key": "adorable-cream-teddy-bear",
+    "price": "10.0000",
+    "formated_price": "$10.00",
+    "short_description": "<p>Buy Adorable Cream Teddy Bear online at best price</p>",
+    "description": "<p>Buy Adorable Cream Teddy Bear online at best price</p>",
+    "sku": "80971254",
+    "images": [
+      {
+        "id": 1,
+        "path": "product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+        "url": "https://example.com/storage/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+        "original_image_url": "https://example.com/storage/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+        "small_image_url": "https://example.com/cache/small/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+        "medium_image_url": "https://example.com/cache/medium/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+        "large_image_url": "https://example.com/cache/large/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg"
+      }
+    ],
+    "base_image": {
+      "small_image_url": "https://example.com/cache/small/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+      "medium_image_url": "https://example.com/cache/medium/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+      "large_image_url": "https://example.com/cache/large/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg",
+      "original_image_url": "https://example.com/cache/original/product/1/dq6dLYcw2zkOjFyKoCk0IYwuljVvtwiEGrVHxaCG.jpeg"
+    },
+    "variants": [],
+    "in_stock": true,
+    "reviews": {
+      "total": 0,
+      "total_rating": 0,
+      "average_rating": 0,
+      "percentage": []
+    },
+    "is_saved": false,
+    "created_at": "2020-09-08T23:52:02.000000Z",
+    "updated_at": "2020-09-08T23:52:02.000000Z"
+  }
+}
+```
+:::
+
 
 ## Get Product's Additional Information
 
@@ -187,7 +460,7 @@ If you want the record of any specific product, then you have to provide the pro
 
 Product's additional information means those attributes which describes the product's specification.
 
-![bagisto_attribute](../assets/images/api/bagisto_attribute.jpg){:class="screenshot-dimension center"}
+![bagisto_attribute](../assets/images/api/bagisto_attribute.jpg)
 
 By using this API call, you will get all the attributes (both system defined and custom) of a product those are having `'Yes'` value for the **`Visible on Product View Page on Front-end`** field by providing `product_id` of that product in the API url.
 
@@ -204,7 +477,7 @@ _https://example.com/public/api/product-additional-information/1_
         ]
     }
 
-![bagisto_add_info](../assets/images/api/bagisto_add_info.jpg){:class="screenshot-dimension center"}
+![bagisto_add_info](../assets/images/api/bagisto_add_info.jpg)
 
 ## Get Product's Variants Information
 

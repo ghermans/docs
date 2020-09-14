@@ -63,6 +63,11 @@ module.exports = {
                 ]
             },
             {
+                title: "Deploy",
+                path: "/deploy/",
+                collapsable: true
+            },
+            {
                 title: "Package Development ",
                 path: "/packages/create",
                 collapsable: true,
@@ -90,6 +95,9 @@ module.exports = {
                 ]
             },
         ]
+    },
+    markdown: {
+        lineNumbers: false
     },
     plugins: ['@vuepress/pwa', 'copy-code', '@vuepress/back-to-top']
 };
