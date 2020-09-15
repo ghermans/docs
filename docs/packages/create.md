@@ -10,20 +10,22 @@ There are two ways to create a package.
 You need to install [Bagisto Package Generator](https://github.com/bagisto/bagisto-package-generator) with the help of composer.  
 
 If you have not installed this package then you need to go to the root folder of **Bagisto** and run the following command
-```
+
+~~~php
 composer require bagisto/bagisto-package-generator
-```
+~~~
 
 Now, to generate your package you need to use the following command
-```php
+
+~~~php
 php artisan package:make ACME/HelloWorld
-```
+~~~
 
 If somehow package directory already present then you can use force command as well. For that you just need to pass the '**--force**' command.
 
-```php
+~~~php
 php artisan package:make ACME/HelloWorld --force
-```
+~~~
 
 Now check your **packages** directory, everything is setup for you.
 
