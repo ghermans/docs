@@ -84,184 +84,182 @@ In this section, we will explain how to create a payment method. You can create 
       - StripeServiceProvider.php
   ~~~
 
-- Within `Config` folder, it contains application's configuration files. Let's just create two files i.e. `system.php` and `paymentmethods.php`.
+- Within `Config` folder, it contains application's configuration files. Let's just create two files i.e. `system.php` and `paymentmethods.php`. In `system.php` file, you have to include the array keys in the file as shown below,
 
-    1. In `system.php` file, you have to include the array keys in the file as shown below,
+  ~~~php
+  <?php
 
-        ~~~php
-        <?php
+  return [
+      [
+          'key'    => 'sales.paymentmethods.stripe',
+          'name'   => 'Stripe',
+          'sort'   => 1,
+          'fields' => [
+              [
+                  'name'          => 'title',
+                  'title'         => 'admin::app.admin.system.title',
+                  'type'          => 'text',
+                  'validation'    => 'required',
+                  'channel_based' => false,
+                  'locale_based'  => true,
+              ], [
+                  'name'          => 'description',
+                  'title'         => 'admin::app.admin.system.description',
+                  'type'          => 'textarea',
+                  'channel_based' => false,
+                  'locale_based'  => true,
+              ], [
+                  'name'          => 'active',
+                  'title'         => 'admin::app.admin.system.status',
+                  'type'          => 'boolean',
+                  'validation'    => 'required',
+                  'channel_based' => false,
+                  'locale_based'  => true,
+              ]
+          ]
+      ]
+  ];
+  ~~~
 
-        return [
-            [
-                'key'    => 'sales.paymentmethods.stripe',
-                'name'   => 'Stripe',
-                'sort'   => 1,
-                'fields' => [
-                    [
-                        'name'          => 'title',
-                        'title'         => 'admin::app.admin.system.title',
-                        'type'          => 'text',
-                        'validation'    => 'required',
-                        'channel_based' => false,
-                        'locale_based'  => true,
-                    ], [
-                        'name'          => 'description',
-                        'title'         => 'admin::app.admin.system.description',
-                        'type'          => 'textarea',
-                        'channel_based' => false,
-                        'locale_based'  => true,
-                    ], [
-                        'name'          => 'active',
-                        'title'         => 'admin::app.admin.system.status',
-                        'type'          => 'boolean',
-                        'validation'    => 'required',
-                        'channel_based' => false,
-                        'locale_based'  => true,
-                    ]
-                ]
-            ]
-        ];
-        ~~~
+  - Let's discuss what these keys are,
+    - `key`: Value which is provided in this key should be unique and concatenated with '.' (dot) operator.
 
-        - Let's discuss what these keys are,
-          - `key`: Value which is provided in this key should be unique and concatenated with '.' (dot) operator.
+    - `name`: This key accept the value as a placeholder for your configuration. Generally, in Bagisto, we consider writing it using translation.
 
-          - `name`: This key accept the value as a placeholder for your configuration. Generally, in Bagisto, we consider writing it using translation.
+    - `sort`: This key accept the sort position for your configuration menu.
 
-          - `sort`: This key accept the sort position for your configuration menu.
+    - `fields`: This key accept the list of arrays representing your custom configurations and fields. Right now you are seeing that it only holding 3 array i.e. title, description and status. If you need some other settings than you can add one more array to this.
 
-          - `fields`: This key accept the list of arrays representing your custom configurations and fields. Right now you are seeing that it only holding 3 array i.e. title, description and status. If you need some other settings than you can add one more array to this.
+- Similarly in `paymentmethods.php`,
 
-    2. Similarly in `paymentmethods.php`,
+  ~~~php
+  <?php
 
-        ~~~php
-        <?php
+  return [
+      'stripe'  => [
+          'code'        => 'stripe',
+          'title'       => 'Stripe',
+          'description' => 'Stripe',
+          'class'       => 'ACME\Stripe\Payment\Stripe',
+          'active'      => true,
+          'sort'        => 1,
+      ],
+  ];
+  ~~~
 
-        return [
-            'stripe'  => [
-                'code'        => 'stripe',
-                'title'       => 'Stripe',
-                'description' => 'Stripe',
-                'class'       => 'ACME\Stripe\Payment\Stripe',
-                'active'      => true,
-                'sort'        => 1,
-            ],
-        ];
-        ~~~
+  - Now, let's look into this what these keys are,
+    - `code`: A text to represent payment method.
+    - `title`: Name of the payment method.
+    - `description`: A brief description of the payment method.
+    - `class`: This key includes the class namespace where all functions of payment method are written.
+    - `active`: This key accepts true/false to enable or disable the module.
+    - `sort`: This key accept the sort position of the payment.
 
-        - Now, let's look into this what these keys are,
-          - `code`: A text to represent payment method.
-          - `title`: Name of the payment method.
-          - `description`: A brief description of the payment method.
-          - `class`: This key includes the class namespace where all functions of payment method are written.
-          - `active`: This key accepts true/false to enable or disable the module.
-          - `sort`: This key accept the sort position of the payment.
+- If you check the above point, we have discussed the key `class` which includes the class namespace. So let's create that class in the respective file. In `Stripe.php`, add the below code,
 
-    3. If you check the second point, we have discussed the key `class` which includes the class namespace. So let's create that class in the respective file. In `Stripe.php`, add the below code,
+  ~~~php
+  <?php
 
-        ~~~php
-        <?php
+  namespace ACME\Stripe\Payment;
 
-        namespace ACME\Stripe\Payment;
+  use Webkul\Payment\Payment\Payment;
 
-        use Webkul\Payment\Payment\Payment;
+  class Stripe extends Payment
+  {
+      /**
+      * Payment method code
+      *
+      * @var string
+      */
+      protected $code  = 'stripe';
 
-        class Stripe extends Payment
-        {
-            /**
-            * Payment method code
-            *
-            * @var string
-            */
-            protected $code  = 'stripe';
+      public function getRedirectUrl()
+      {
+      }
+  }
+  ~~~
 
-            public function getRedirectUrl()
-            {
-            }
-        }
-        ~~~
+- Now we need to create the provider, in `StripeServiceProvider.php` add the below code,
 
-    4. Now we need to create the provider, in `StripeServiceProvider.php` add the below code,
+  ~~~php
+  <?php
 
-        ~~~php
-        <?php
+  namespace ACME\Stripe\Providers;
 
-        namespace ACME\Stripe\Providers;
+  use Illuminate\Support\ServiceProvider;
 
-        use Illuminate\Support\ServiceProvider;
+  class StripeServiceProvider extends ServiceProvider
+  {
+      /**
+      * Bootstrap services.
+      *
+      * @return void
+      */
+      public function boot()
+      {
+      }
 
-        class StripeServiceProvider extends ServiceProvider
-        {
-            /**
-            * Bootstrap services.
-            *
-            * @return void
-            */
-            public function boot()
-            {
-            }
+      /**
+      * Register services.
+      *
+      * @return void
+      */
+      public function register()
+      {
+          $this->registerConfig();
+      }
 
-            /**
-            * Register services.
-            *
-            * @return void
-            */
-            public function register()
-            {
-                $this->registerConfig();
-            }
+      /**
+      * Register package config.
+      *
+      * @return void
+      */
+      protected function registerConfig()
+      {
+          $this->mergeConfigFrom(
+              dirname(__DIR__) . '/Config/paymentmethods.php', 'paymentmethods'
+          );
 
-            /**
-            * Register package config.
-            *
-            * @return void
-            */
-            protected function registerConfig()
-            {
-                $this->mergeConfigFrom(
-                    dirname(__DIR__) . '/Config/paymentmethods.php', 'paymentmethods'
-                );
+          $this->mergeConfigFrom(
+              dirname(__DIR__) . '/Config/system.php', 'core'
+          );
+      }
+  }
+  ~~~
 
-                $this->mergeConfigFrom(
-                    dirname(__DIR__) . '/Config/system.php', 'core'
-                );
-            }
-        }
-        ~~~
+- After that, you need to register your service provider in `config/app.php`.
 
-    5. After that, you need to register your service provider in `config/app.php`.
+  ~~~php
+  <?php
 
-        ~~~php
-        <?php
+  return [
+      ...
+      'providers' => [
+          ...
+          ACME\Stripe\Providers\StripeServiceProvider::class,
+          ...
+      ]
+      ...
+  ];
+  ~~~
 
-        return [
-            ...
-            'providers' => [
-                ...
-                ACME\Stripe\Providers\StripeServiceProvider::class,
-                ...
-            ]
-            ...
-        ];
-        ~~~
+- After that, add you payment method namespace in `psr-4` key in `composer.json` file for auto loading.
 
-    6. After that, add you payment method namespace in `psr-4` key in `composer.json` file for auto loading.
+  ~~~json
+  "autoload": {
+      ...
+      "psr-4": {
+          ...
+          "ACME\\Stripe\\": "packages/ACME/Stripe/src"
+          ...
+      }
+      ...
+  }
+  ~~~
 
-        ~~~json
-        "autoload": {
-            ...
-            "psr-4": {
-                ...
-                "ACME\\Stripe\\": "packages/ACME/Stripe/src"
-                ...
-            }
-            ...
-        }
-        ~~~
+- Run `composer dump-autoload`.
 
-    7. Run `composer dump-autoload`.
-
-    8. After that run `php artisan config:cache`.
+- After that run `php artisan config:cache`.
 
 ::: warning
 If `composer dump-autoload` giving some error than in that case delete all files from the `bootstrap/cache` and again run `composer dump-autoload`.
