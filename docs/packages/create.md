@@ -305,11 +305,11 @@ Let's start with first step by creating the packages folder.
 
   - **__Admin Output__**
 
-    ![helloworld-admin-browser-output](assets/images/Bagisto_Docs_Images/PackageDevelopment/helloworld-admin-browser-output.png){: .screenshot-dimension .center}
+    ![helloworld-admin-browser-output](../assets/images/PackageDevelopment/helloworld-admin-browser-output.png)
 
   - **__Shop Output__**
 
-    ![helloworld-shop-browser-output](assets/images/Bagisto_Docs_Images/PackageDevelopment/helloworld-shop-browser-output.png){: .screenshot-dimension .center}
+    ![helloworld-shop-browser-output](../assets/images/PackageDevelopment/helloworld-shop-browser-output.png)
 
 ### Step-8
 
@@ -375,7 +375,7 @@ Let's start with first step by creating the packages folder.
 
 - Add `\{\{ __('helloworld::app.hello-world.name') \}\}` to your application’s view & it will automatically translate it.
 
-    ![translation-output](assets/images/Bagisto_Docs_Images/PackageDevelopment/translation-output.png){: .screenshot-dimension .center}
+    ![translation-output](../assets/images/PackageDevelopment/translation-output.png)
 
 ### Step-9
 
@@ -455,9 +455,9 @@ Let's start with first step by creating the packages folder.
     }
     ~~~
 
-- After doing this go to the root of your package & run `npm install` which will install all dependencies. After installing dependencies run `npm run watch`, which will compile all your CSS & publish it inside public folder according to path mention in **_webpack.mix.js_** according to the environment.
+- After doing this go to the root of your package & run `npm install` which will install all dependencies. After installing dependencies run `npm run prod` and this command will copied all your changes to publishable folder.
 
-- After doing this we need to add an event listener so that admin layouts include our CSS. For this we need to add an Event Listener in service provider & Inside views create a folder called **layouts** & inside it create a file called **_style.blade.php_** & mention compiled CSS path inside this file.
+- After doing this we need to add an event listener so that admin layouts include our CSS. For this we need to add an Event Listener in service provider & in `views` create a folder named as **layouts** & inside that create a file called **_style.blade.php_** & mention compiled CSS path inside this file.
 
     ~~~html
     <link
@@ -465,7 +465,7 @@ Let's start with first step by creating the packages folder.
     href="{% raw %} {{ asset('vendor/webkul/helloworld/assets/css/helloworld.css') }} {% endraw %}"/>
     ~~~
 
-    ![style-blade](assets/images/Bagisto_Docs_Images/PackageDevelopment/style-blade.png){: .screenshot-dimension .center}
+    ![style-blade](../assets/images/PackageDevelopment/style-blade.png)
 
 - **For Event Listener:** Initially, add facade 'Event' into your **_HelloWorldServiceProvider.php_** file, else it will throw an error.
 
@@ -520,7 +520,7 @@ Let's start with first step by creating the packages folder.
 
 - If you don’t want to include this one then you can create your own master file which includes your packages CSS & JS.
 
-    ![layout-content](assets/images/Bagisto_Docs_Images/PackageDevelopment/layout-content.png){: .screenshot-dimension .center}
+    ![layout-content](../assets/images/PackageDevelopment/layout-content.png)
 
 ### Step-10
 
@@ -744,7 +744,7 @@ You may also specify a --path option when creating the migration. The path shoul
 
 - And, now we need to extend the default layout of our admin panel by using '@extends('admin::layouts.content')' in our package master file.
 
-    ![hello-world-icon](assets/images/Bagisto_Docs_Images/PackageDevelopment/hello-world-icon.png){: .screenshot-dimension .center}
+    ![hello-world-icon](../assets/images/PackageDevelopment/hello-world-icon.png)
 
 - Now, this menu will come in the admin login. You can change the icon accordingly to your needs. By clicking, upon the icon, it will open the view file provided in `Route` facade.
 
@@ -803,7 +803,7 @@ return [
 
 2. The array is created for an individual's menu with the parameters (key, name, route, sort). All we need is to define the menu which we want to be included in ACL functionality.
 
-![ACL](assets/images/Bagisto_Docs_Images/ACL/acl-ui.png){: .screenshot-dimension .center}
+![ACL](../assets/images/ACL/acl-ui.png)
 
 ## Custom Configuration <a id="custom-configuration"></a>
 
@@ -844,7 +844,7 @@ Creating a custom configuration ease the task for a developer or any non-develop
     ];
     ~~~
 
-    ![Custom Configuration file](assets/images/Bagisto_Docs_Images/custom-configuration.png){: .screenshot-dimension .center}
+    ![Custom Configuration file](../assets/images/custom-configuration.png)
 
 #### Explanation for the keys
 
