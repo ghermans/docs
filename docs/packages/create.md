@@ -305,11 +305,11 @@ Let's start with first step by creating the packages folder.
 
   - **__Admin Output__**
 
-    ![helloworld-admin-browser-output](assets/images/Bagisto_Docs_Images/PackageDevelopment/helloworld-admin-browser-output.png){: .screenshot-dimension .center}
+    ![helloworld-admin-browser-output](../assets/images/PackageDevelopment/helloworld-admin-browser-output.png){: .screenshot-dimension .center}
 
   - **__Shop Output__**
 
-    ![helloworld-shop-browser-output](assets/images/Bagisto_Docs_Images/PackageDevelopment/helloworld-shop-browser-output.png){: .screenshot-dimension .center}
+    ![helloworld-shop-browser-output](../assets/images/PackageDevelopment/helloworld-shop-browser-output.png){: .screenshot-dimension .center}
 
 ### Step-8
 
@@ -375,7 +375,7 @@ Let's start with first step by creating the packages folder.
 
 - Add `\{\{ __('helloworld::app.hello-world.name') \}\}` to your application’s view & it will automatically translate it.
 
-    ![translation-output](assets/images/Bagisto_Docs_Images/PackageDevelopment/translation-output.png){: .screenshot-dimension .center}
+    ![translation-output](../assets/images/PackageDevelopment/translation-output.png){: .screenshot-dimension .center}
 
 ### Step-9
 
@@ -465,7 +465,7 @@ Let's start with first step by creating the packages folder.
     href="{% raw %} {{ asset('vendor/webkul/helloworld/assets/css/helloworld.css') }} {% endraw %}"/>
     ~~~
 
-    ![style-blade](assets/images/Bagisto_Docs_Images/PackageDevelopment/style-blade.png){: .screenshot-dimension .center}
+    ![style-blade](../assets/images/PackageDevelopment/style-blade.png){: .screenshot-dimension .center}
 
 - **For Event Listener:** Initially, add facade 'Event' into your **_HelloWorldServiceProvider.php_** file, else it will throw an error.
 
@@ -520,7 +520,7 @@ Let's start with first step by creating the packages folder.
 
 - If you don’t want to include this one then you can create your own master file which includes your packages CSS & JS.
 
-    ![layout-content](assets/images/Bagisto_Docs_Images/PackageDevelopment/layout-content.png){: .screenshot-dimension .center}
+    ![layout-content](../assets/images/PackageDevelopment/layout-content.png){: .screenshot-dimension .center}
 
 ### Step-10
 
@@ -744,7 +744,7 @@ You may also specify a --path option when creating the migration. The path shoul
 
 - And, now we need to extend the default layout of our admin panel by using '@extends('admin::layouts.content')' in our package master file.
 
-    ![hello-world-icon](assets/images/Bagisto_Docs_Images/PackageDevelopment/hello-world-icon.png){: .screenshot-dimension .center}
+    ![hello-world-icon](../assets/images/PackageDevelopment/hello-world-icon.png){: .screenshot-dimension .center}
 
 - Now, this menu will come in the admin login. You can change the icon accordingly to your needs. By clicking, upon the icon, it will open the view file provided in `Route` facade.
 
@@ -803,7 +803,7 @@ return [
 
 2. The array is created for an individual's menu with the parameters (key, name, route, sort). All we need is to define the menu which we want to be included in ACL functionality.
 
-![ACL](assets/images/Bagisto_Docs_Images/ACL/acl-ui.png){: .screenshot-dimension .center}
+![ACL](../assets/images/ACL/acl-ui.png){: .screenshot-dimension .center}
 
 ## Custom Configuration <a id="custom-configuration"></a>
 
@@ -844,7 +844,7 @@ Creating a custom configuration ease the task for a developer or any non-develop
     ];
     ~~~
 
-    ![Custom Configuration file](assets/images/Bagisto_Docs_Images/custom-configuration.png){: .screenshot-dimension .center}
+    ![Custom Configuration file](../assets/images/custom-configuration.png){: .screenshot-dimension .center}
 
 #### Explanation for the keys
 
