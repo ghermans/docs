@@ -1,4 +1,4 @@
-# Create a payment method
+# Create a new payment method
 
 We hope that now you know how to create a package, if not refer to [Package Development](../packages/create.md).
 
@@ -261,6 +261,8 @@ In this section, we will explain how to create a payment method. You can create 
 
 - After that run `php artisan config:cache`.
 
-::: warning
+::: tip
+
 If `composer dump-autoload` giving some error than in that case delete all files from the `bootstrap/cache` and again run `composer dump-autoload`.
+
 :::
