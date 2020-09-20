@@ -63,9 +63,11 @@ There are two ways to create a package.
 
 - Run `composer dump-autoload`.
 
-- Check output in the browser.
+::: details Check output in the browser
 
-  ![helloworld-admin-browser-output](../assets/images/package-development/hello-world-package-output.png)
+![helloworld-admin-browser-output](../assets/images/package-development/hello-world-package-output.png)
+
+:::
 
 - Now start creating something cool.
 
@@ -73,7 +75,9 @@ There are two ways to create a package.
 
 By manually setting up package, we assume that you are familiar with packages directory structures and flow. If not then you can find a basic tree structure of package below,
 
-  ~~~file-structure
+  ::: details Basic tree structure of the package
+
+  ~~~
   - ACME/HelloWorld/
     - publishable/assets
       - css/
@@ -131,13 +135,15 @@ By manually setting up package, we assume that you are familiar with packages di
     - webpack.mix.js
   ~~~
 
+  :::
+
 Let's start with first step by creating the packages folder.
 
 ### Step-1
 
 - In `packages` folder, create a folder with your company name and inside that create a folder with your package name. Let's say `ACME/HelloWorld`. So, your basic structure will look like this,
 
-  ~~~file-structure
+  ~~~
   - packages/
     - ACME/HelloWorld/
   ~~~
@@ -146,7 +152,7 @@ Let's start with first step by creating the packages folder.
 
 - In your package folder, create a folder named as `src`. This is the place where you need to put all your files related to your package. Now, your updated structure will look like this,
 
-  ~~~file-structure
+  ~~~
   - packages/
     - ACME/HelloWorld/
       - src/
@@ -237,13 +243,17 @@ Let's start with first step by creating the packages folder.
   }
   ~~~
 
+- Run `composer dump-autoload`.
+
 ### Step-6
 
 - Now, we are going to add routing & views in our package.
 
   - **For routes**: Create `Http` folder in `packages/ACME/HelloWorld/src` path and create two files named as `admin-routes.php` and `shop-routes.php`. So updated structure will look like this,
 
-    ~~~php
+    ::: details Updated directory structure
+
+    ~~~
     - packages/
       - ACME/HelloWorld/
         - src/
@@ -252,6 +262,8 @@ Let's start with first step by creating the packages folder.
             - admin-routes.php
             - shop-routes.php
     ~~~
+
+    :::
   
     - `admin-routes.php`: This file is for the admin routes. Add below codes to this file,
 
@@ -295,32 +307,35 @@ Let's start with first step by creating the packages folder.
 
     :::
 
-  - **For views**: Create `Resources` folder in `packages/ACME/HelloWorld/src` path. In `Resources` folder create a folder name as `views`. Now, in the `views` folder, we need to create a two more folder i.e. `admin` and `shop`. So updated structure will look like this,
+  - **For views**: Create `Resources` folder in `packages/ACME/HelloWorld/src` path. In `Resources` folder, create another folder named as `views`. Now, in the `views` folder, we need to create a two more folder i.e. `admin` and `shop`. So updated structure will look like this,
 
-    ~~~php
+    ::: details Updated directory structure
+
+    ~~~
     - packages/
       - ACME/HelloWorld/
         - src/
           ...
           - Resources/
-            - assets/
-            - lang/
+            ...
             - views/
               - admin/
               - shop/
     ~~~
 
+    :::
+
     - Inside each folder i.e. `admin` and `shop` create a file named as `index.blade.php`. Add some data to `index.blade.php`,
 
       - `admin/index.blade.php`
 
-        ~~~php
+        ~~~html
         <h2>Hello World Admin</h2>
         ~~~
 
       - `shop/index.blade.php`
 
-        ~~~php
+        ~~~html
         <h2>Hello World Shop</h2>
         ~~~
 
@@ -398,19 +413,39 @@ Let's start with first step by creating the packages folder.
 
 - Now, check your route in your browser,
 
-  - **__Admin Output__**
+  ::: details Admin Output
 
-    ![helloworld-admin-browser-output](../assets/images/package-development/helloworld-admin-browser-output.png)
-
-  - **__Shop Output__**
+    ![Admin Browser Output](../assets/images/package-development/helloworld-admin-browser-output.png)
   
-    ![helloworld-shop-browser-output](../assets/images/package-development/helloworld-shop-browser-output.png)
+  :::
+
+  ::: details Shop Output
+  
+    ![Shop Browser Output](../assets/images/package-development/helloworld-shop-browser-output.png)
+
+  :::
 
 ### Step-8
 
 - Now, we are going to create a language file for our package. For this create a `lang` folder in the `packages/ACME/HelloWorld/src/Resources` path.
 
-- In `lang` folder, you can create a different folder for language translations like for English 'en', Hindi ‘hn’ etc. Moving forward, we will create a folder name **en** (say language code) and inside **en** folder, create a file name as `app.php` to perform language translation.
+- In `lang` folder, you can create a different folder for language translations like for English 'en', Hindi ‘hn’ etc. Moving forward, we will create a folder name `en` (say language code) and in that folder, create a file name as `app.php` to perform language translation.
+
+  ::: details Updated directory structure
+
+    ~~~
+    - packages/
+      - ACME/HelloWorld/
+        - src/
+          ...
+          - Resources/
+            ...
+            - lang/
+              - en/
+                - app.php
+    ~~~
+
+  :::
 
 - Now, we need to register the language file to the service provider.
 
@@ -474,13 +509,17 @@ Let's start with first step by creating the packages folder.
   {{ __('helloworld::app.hello-world.name') }}
   ~~~
 
-  - **__Admin Output__**
+  ::: details Admin Output
 
     ![Translation Output](../assets/images/package-development/hello-world-admin-translation-output.png)
 
-  - **__Shop Output__**
+  :::
+
+  ::: details Shop Output
 
     ![Translation Output](../assets/images/package-development/hello-world-shop-translation-output.png)
+
+  :::
 
 ### Step-9
 
@@ -492,7 +531,7 @@ Let's start with first step by creating the packages folder.
   
   - In **js** folder, add file **app.js**
 
-- Final structure will look like this,
+::: details Updated directory structure
 
   ~~~php
   - packages/
@@ -507,6 +546,8 @@ Let's start with first step by creating the packages folder.
                 - app.js
               - images/
   ~~~
+
+:::
 
 - To add assets, create `package.json` and `webpack.mix.js` file inside the root of your package i.e. `packages/ACME/HelloWorld`.
 
@@ -573,7 +614,15 @@ Let's start with first step by creating the packages folder.
 
 - After doing this go to the root of your package i.e. `packages/ACME/HelloWorld` and run `npm install` which will install all dependencies.
 
-- Run `npm run prod` which will compiled all your css, js and images to the publishable folder. Then register your publishable in `HelloWorldServiceProvider`,
+- Now, `app.js` and `app.scss` is ready. Write all your css and js here.
+
+- When you done with your changes, then run `npm run prod` which will compiled all your css, js and images to the publishable folder. Then register your publishable in `HelloWorldServiceProvider`,
+
+  ::: tip
+
+  You can use `npm run watch` also, this will watch all your changes and put all your changes to the public path. When you done with all your changes then run `npm run prod` to compile all your changes and move to publishable folder.
+
+  :::
 
   ~~~php
   <?php
@@ -664,7 +713,7 @@ Let's start with first step by creating the packages folder.
           ], 'public');
 
           Event::listen('bagisto.admin.layout.head', function($viewRenderEventManager) {
-              $viewRenderEventManager->addTemplate('helloworld::helloworld.layouts.style');
+              $viewRenderEventManager->addTemplate('helloworld::admin.layouts.style');
           });
       }
 
@@ -709,6 +758,8 @@ Let's start with first step by creating the packages folder.
   ~~~
 
 - If you don’t want to include this one then you can create your own master file which includes your packages CSS & JS.
+
+- Run `php artisan vendor:publish --all --force`. This will move all your publishable assets to their respective directory which you mentioned in the service provider.
 
 ### Step-10
 
@@ -769,7 +820,9 @@ Let's start with first step by creating the packages folder.
   }
   ~~~
 
-## How to create Migrations?
+- Now start adding your migration files.
+
+## Creating Migrations
 
 You can create migration in two ways,
 
@@ -778,13 +831,13 @@ You can create migration in two ways,
 
 ### By using Bagisto Package Generator
 
-This command will create a new migration class in 'packages/ACME/HelloWorld/src/Database/Migrations' directory.
+This command will create a new migration class in `packages/ACME/HelloWorld/src/Database/Migrations` directory.
 
 `php artisan package:make-migration CreateUsersTable ACME/HelloWorld`
 
 ### By normal laravel command and then manually copy to the respective folder
 
-To create a migration, use the 'make:migration Artisan command':
+To create a migration, use the `make:migration` artisan command:
 
 `php artisan make:migration create_users_table`
 
@@ -796,33 +849,33 @@ You may also specify a --path option when creating the migration. The path shoul
 
 `php artisan make:migration create_demo_table --path=packages/ACME/HelloWorld/src/Database/Migrations`
 
-## How to Add Menu in Admin?
+## Adding Menu in Admin
 
 - Within your package `packages/ACME/HelloWorld/src`, create **Config** folder and create a file named as `admin-menu.php`.
 
 ~~~php
 <?php
 
-  return [
-      [
-        'key'        => 'helloworld',
-        'name'       => 'Hello World',
-        'route'      => 'helloworld.admin.index',
-        'sort'       => 1,
-        'icon-class' => 'dashboard-icon',
-      ]
-  ];
+return [
+    [
+      'key'        => 'helloworld',
+      'name'       => 'Hello World',
+      'route'      => 'helloworld.admin.index',
+      'sort'       => 1,
+      'icon-class' => 'dashboard-icon',
+    ]
+];
 ~~~
 
 - In this file, we provide the name of the menu, route & its icon.
 
-| Params     | description                                        |
-| -----------| -------------------------------------------------- |
-| key        | uniquely defined key for menu-icon                 |
-| name       | name of menu-icon                                  |
-| route      | the route for your menu-icon                       |
-| sort       | Sort number on which your menu-icon should display |
-| icon-class | class of menu-icon                                 |
+| Params     | Description                                         |
+| ---------- | --------------------------------------------------- |
+| key        | Unique key for menu icon.                           |
+| name       | Name of menu icon.                                  |
+| route      | Route name for your menu icon.                      |
+| sort       | Sort number on which your menu icon should display. |
+| icon-class | Class for menu icon.                                |
 
 - For the route, just add the named route which specified above i.e. `helloworld.admin.index`,
 
@@ -848,32 +901,6 @@ You may also specify a --path option when creating the migration. The path shoul
   class HelloWorldServiceProvider extends ServiceProvider
   {
       /**
-      * Bootstrap services.
-      *
-      * @return void
-      */
-      public function boot()
-      {
-          $this->loadRoutesFrom(__DIR__ . '/../Http/admin-routes.php');
-
-          $this->loadRoutesFrom(__DIR__ . '/../Http/shop-routes.php');
-
-          $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'helloworld');
-
-          $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'helloworld');
-
-          $this->publishes([
-              __DIR__ . '/../../publishable/assets' => public_path('vendor/webkul/helloworld/assets'),
-          ], 'public');
-
-          Event::listen('bagisto.admin.layout.head', function($viewRenderEventManager) {
-              $viewRenderEventManager->addTemplate('helloworld::helloworld.layouts.style');
-          });
-
-          $this->loadMigrationsFrom(__DIR__ .'/../Database/Migrations');
-      }
-
-      /**
       * Register services.
       *
       * @return void
@@ -889,7 +916,13 @@ You may also specify a --path option when creating the migration. The path shoul
 
 - Now, menu will display in the admin panel. You can change the icon according to your needs.
 
-## How to Create ACL in Bagisto?
+  ::: details Output
+
+    ![Admin Menu Output](../assets/images/package-development/admin-menu-output.png)
+
+  :::
+
+## Creating ACL
 
 In term to manage an eCommerce site becomes clumsy and ambiguous. Here, in Bagisto, it has been taken care of, Bagisto has provided a functionality **ACL** (Access Control List). Mainly, with ACL, admin has the power to disable the menu whatever not in use for admin.
 
@@ -903,7 +936,7 @@ There are some steps that the user has to follow to create ACL. The user has to 
 return [
     [
         'key' => 'helloworld',
-        'name' => 'Hello World',
+        'name' => 'HelloWorld',
         'route' => 'helloworld.admin.index',
         'sort' => 2
     ]
@@ -912,71 +945,157 @@ return [
 
 - The array is created for an individual's menu with the parameters (key, name, route, sort). All we need is to define the menu which we want to include in ACL functionality.
 
-## Custom Configuration < id="custom-configuration"></>
+- After that for changes, we need to merge the acl config also just like we have done with menu items,
 
-Creating a custom configuration ease the task for a developer or any non-developer person. It lets you option of enable/disable with the dropdown or any input _type_ attribute. Generally, in bagisto, you can find it in admin panel **Configuration menu**.
+  ~~~php
+  <?php
+
+  namespace ACME\HelloWorld\Providers;
+
+  use Illuminate\Support\Facades\Event;
+  use Illuminate\Support\ServiceProvider;
+
+  /**
+  * HelloWorldServiceProvider
+  *
+  * @copyright 2020 Webkul Software Pvt. Ltd. (http://www.webkul.com)
+  */
+  class HelloWorldServiceProvider extends ServiceProvider
+  {
+      /**
+      * Register services.
+      *
+      * @return void
+      */
+      public function register()
+      {
+          $this->mergeConfigFrom(
+              dirname(__DIR__) . '/Config/admin-menu.php', 'menu.admin'
+          );
+
+          $this->mergeConfigFrom(
+              dirname(__DIR__) . '/Config/acl.php', 'acl'
+          );
+      }
+  }
+  ~~~
+
+  ::: details Output
+
+    ![Admin ACL Output](../assets/images/package-development/admin-acl-output.png)
+
+  :::
+
+## Creating Custom Configuration
+
+Creating a custom configuration ease the task for a developer or any non-developer person. Generally, in Bagisto, you can find it in admin panel **Configuration Menu**.
 
 ### Steps to create custom configuration
 
-- To create a custom configuration for your application, you just need to create a `system.php` file under the `Config` folder of your package.
+- To create a custom configuration for your application, you just need to create a `system.php` file in the `Config` folder of your package.
 
 - Inside the file, you can include the code below,
 
-    ~~~php
-    <?php
+  ~~~php
+  <?php
 
-    return [
-        [
-            'key' => 'helloworld',
-            'name' => 'Hello World',
-            'sort' => 1
-        ], [
-            'key' => 'helloworld.settings',
-            'name' => 'Settings',
-            'sort' => 1,
-        ], [
-            'key' => 'helloworld.settings.settings',
-            'name' => 'Status',
-            'sort' => 1,
-            'fields' => [
-                [
-                    'name' => 'Enable/Disable',
-                    'title' => 'Toggle',
-                    'type' => 'boolean',
-                    'channel_based' => true,
-                    'locale_based' => false
-                ]
-            ]
-        ]
-    ];
-    ~~~
+  return [
+      [
+          'key' => 'helloworld',
+          'name' => 'Hello World',
+          'sort' => 1
+      ], [
+          'key' => 'helloworld.settings',
+          'name' => 'Custom Settings',
+          'sort' => 1,
+      ], [
+          'key' => 'helloworld.settings.settings',
+          'name' => 'Custom Groupings',
+          'sort' => 1,
+          'fields' => [
+              [
+                  'name' => 'status',
+                  'title' => 'Status',
+                  'type' => 'boolean',
+                  'channel_based' => true,
+                  'locale_based' => false
+              ]
+          ]
+      ]
+  ];
+  ~~~
 
 #### Explanation for the keys
 
 - **key**    : This key accept the unique value and nested with '.' (dot) operator.
 
-- **name**   : This key accept the value as a placeholder of your configuration. Generally, in Bagisto, we consider writing it using translation.
+- **name**   : This key accept the value as a placeholder for your configuration. Generally, in Bagisto, we consider writing it using translation.
 
 - **sort**   : This key accept the sort position for the configuration menu.
 
 - **fields** : This key accept the array for the value of the custom configuration.
 
-## Creating Models <a id="create_models"></a>
+- We need to merge the these custom config also,
+
+  ~~~php
+  <?php
+
+  namespace ACME\HelloWorld\Providers;
+
+  use Illuminate\Support\Facades\Event;
+  use Illuminate\Support\ServiceProvider;
+
+  /**
+  * HelloWorldServiceProvider
+  *
+  * @copyright 2020 Webkul Software Pvt. Ltd. (http://www.webkul.com)
+  */
+  class HelloWorldServiceProvider extends ServiceProvider
+  {
+      /**
+      * Register services.
+      *
+      * @return void
+      */
+      public function register()
+      {
+          $this->mergeConfigFrom(
+              dirname(__DIR__) . '/Config/admin-menu.php', 'menu.admin'
+          );
+
+          $this->mergeConfigFrom(
+              dirname(__DIR__) . '/Config/acl.php', 'acl'
+          );
+
+          $this->mergeConfigFrom(
+              dirname(__DIR__) . '/Config/system.php', 'core'
+          );
+      }
+  }
+  ~~~
+
+  ::: details Output
+
+    ![Admin ACL Output](../assets/images/package-development/admin-custom-config-output.png)
+
+  :::
+
+## Creating Models
 
 ### Create model by using Bagisto Package Generator
 
 - This command will create a following files,
-  - New model class in '**__packages/ACME/TestPackage/src/Models__**' directory.
-  - New model proxy class in '**__packages/ACME/TestPackage/src/Models__**' directory.
-  - New model contract in '**__packages/ACME/TestPackage/src/Contracts__**' directory.
+  - New model class in `packages/ACME/HelloWorld/src/Models` directory.
+  - New model proxy class in `packages/ACME/HelloWorld/src/Models` directory.
+  - New model contract in `packages/ACME/HelloWorld/src/Contracts` directory.
 
   `php artisan package:make-model User ACME/HelloWorld`
 
 ### Create model by normal laravel commands
 
-- Models typically live in the app directory, but you are free to place them anywhere that can be auto-loaded according to your **_composer.json_** file. All Eloquent models extend `Illuminate\Database\Eloquent\Model` class.
+- Models typically live in the `app` directory, but you are free to place them anywhere that can be auto-loaded according to your `composer.json` file. All Eloquent models extend `Illuminate\Database\Eloquent\Model` class.
 
-- The simple way to create a model is executing the command _make:model Artisan command_:
+- The simple way to create a model is executing the command `make:model` artisan command,
 
     `php artisan make:model User`
 
@@ -985,9 +1104,7 @@ Creating a custom configuration ease the task for a developer or any non-develop
     `php artisan make:model User --migration`
     `php artisan make:model User -m`
 
-> **Note** : _For more details check_ <a href="https://laravel.com/docs/5.8/eloquent#defining-models" target="_blank" class="bagsito-link"> Laravel Models </a>
-
-## What is Contracts, Repositories and Proxies? <a id="about"></a>
+## Contracts, Repositories and Proxies
 
 ### Contracts
 
@@ -996,8 +1113,6 @@ Laravel's Contracts are a set of interfaces that define the core services provid
 Each contract has a corresponding implementation provided by the framework. For example, Laravel provides a queue implementation with a variety of drivers, and a mailer implementation that is powered by SwiftMailer.
 
 All of the Laravel contracts live in their own GitHub repository. This provides a quick reference point for all available contracts, as well as a single, decoupled package that may be utilized by package developers.
-
-> **Note** : _For more details check_ <a href="https://laravel.com/docs/5.8/contracts" target="_blank" class="bagsito-link"> Laravel Contracts </a>
 
 ### Repositories
 
@@ -1009,91 +1124,113 @@ This file defines our Repository class. Instances of this class have a model pro
 
 Proxies as their name state will drive you to the actual model class. The concept of model proxies has been introduced to override the functionality of the existing Model. It is a type of model inheritance without creating a new table in the database.
 
-## Store data through Repository <a id="store-data-through-repository"></a>
+## Store data through Repository
 
 Steps to store data through repository:
 
-- Beginning with the creation of models, generally, models are created using command stated below.
+- For creating models, create a file named as `HelloWorld.php` in `packages/ACME/HelloWorld/src/Models`, and copy the below code in file,
 
-    `php artisan make:model HelloWorld`
+  ~~~php
+  <?php
 
-> Note: If you have created model by using **__Bagisto Package Generator__**, then you can skip the model proxy and contract creation step.
+  namespace ACME\HelloWorld\Models;
 
-- Now, at the same location create a model proxy file as **_HelloWorldProxy.php_**. This Proxy class will extends ModelProxy. Also, you have to add `use Konekt\Concord\Proxies\ModelProxy;` like below stated
+  use Illuminate\Database\Eloquent\Model;
+  use ACME\HelloWorld\Contracts\HelloWorld as HelloWorldContract;
 
-    ~~~php
-    <?php
+  class HelloWorld extends Model implements HelloWorldContract
+  {
+      protected $fillable = [];
+  }
+  ~~~
 
-    namespace Acme\HelloWorld\Models;
+> Note: If you have created model by using **Bagisto Package Generator**, then you can skip the model proxy and contract creation step.
 
-    use Konekt\Concord\Proxies\ModelProxy;
+- Now, at the same location create a model proxy file as `HelloWorldProxy.php`. This Proxy class will extends `Konekt\Concord\Proxies\ModelProxy`. Copy the below code in file,
 
-    class DataFlowProfileProxy extends ModelProxy
-    {
+  ~~~php
+  <?php
 
-    }
-    ~~~
+  namespace ACME\HelloWorld\Models;
 
-- Now, make a folder named as **Contracts** and inside it create an interface file named as **_HelloWorld.php_**
+  use Konekt\Concord\Proxies\ModelProxy;
 
-- Now, let's create a Repository, by using this command if you have **__Bagisto Package Generator__**.
+  class HelloWorldProxy extends ModelProxy
+  {
+
+  }
+  ~~~
+
+- Now, create a folder named as `Contracts` and create an interface file named as `HelloWorld.php`,
+
+  ~~~php
+  <?php
+
+  namespace ACME\HelloWorld\Contracts;
+
+  interface HelloWorld
+  {
+  }
+  ~~~
+
+- Create a `Repository` folder and create a file `HelloWorldRepository.php` and create the `model()` method in repository class which returns the path of your contract class.
+
+  ~~~php
+  <?php
+
+  namespace ACME\HelloWorld\Repositories;
+
+  use Webkul\Core\Eloquent\Repository;
+
+  class HelloWorldRepository extends Repository
+  {
+      /**
+      * Specify Model class name
+      *
+      * @return mixed
+      */
+      function model()
+      {
+          return 'ACME/HelloWorld/Contracts/HelloWorld';
+      }
+  }
+  ~~~
+
+  ::: tip
+
+  - You can use **Bagisto Package Generator** also,
 
     `php artisan package:make-repository HelloWorldRepository ACME/HelloWorld`
 
-- Or you can create manually also, make a **Repository** folder and inside it create a file **_HelloWorldRepository.php_** and write the model method for repository class and under the method return path of your contract class.
+  :::
 
-    ~~~php
-    <?php
-    namespace Acme\HelloWorld\Repositories;
+- After creating all the files stated above, we have to create a provider as  `ModuleServiceProvider.php`. In this file, models which are used in this package are registered. You may check below code,
 
-    use Webkul\Core\Eloquent\Repository;
+  ~~~php
+  <?php
 
-    class HelloWorldRepository extends Repository
-    {
-    /**
-        * Specify Model class name
-        *
-        * @return mixed
-        */
-        function model()
-        {
-            return 'ACME\HelloWorld\Contracts\HelloWorld';
-        }
-    }
-    ~~~
+  namespace ACME\HelloWorld\Providers;
 
-- After creating all the files stated above for our package, we have to create a provider as **_ModuleServiceProvider.php_** and register it in `config/concord.php`. Inside this file, models used within the package are registered. You may check below code
+  use Konekt\Concord\BaseModuleServiceProvider;
 
-    ~~~php
-    <?php
+  class ModuleServiceProvider extends BaseModuleServiceProvider
+  {
+      protected $models = [
+          ACME\HelloWorld\Models\HelloWorld::class,
+      ];
+  }
+  ~~~
 
-    namespace  Acme\HelloWorld\Providers;
-
-    use Konekt\Concord\BaseModuleServiceProvider;
-
-    class ModuleServiceProvider extends BaseModuleServiceProvider
-    {
-        protected $models = [
-            \Acme\HelloWorld\Models\HelloWorld::class,
-        ];
-    }
-    ~~~
-
-- **Now**, Registering **_ModuleServiceProvider.php_** in `config/concord.php` file
+- Now, Register your `ModuleServiceProvider.php` in `config/concord.php` file,
 
     ~~~php
     <?php
 
     return [
         'modules' => [
-            /**
-            * Example:
-            * VendorA\ModuleX\Providers\ModuleServiceProvider::class,
-            * VendorB\ModuleY\Providers\ModuleServiceProvider::class
-            *
-            */
-
-            \Acme\HelloWorld\Providers\ModuleServiceProvider::class
+            ACME\HelloWorld\Providers\ModuleServiceProvider::class
         ]
     ];
     ~~~
+
+- Now, you are all set to go.
