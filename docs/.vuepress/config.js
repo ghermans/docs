@@ -33,6 +33,11 @@ module.exports = {
                 ]
             },
             {
+                title: "Package Development",
+                path: "/packages/create",
+                collapsable: true,
+            },
+            {
                 title: "Advanced topics",
                 path: "/advanced/",
                 collapsable: true,
@@ -45,33 +50,7 @@ module.exports = {
                     ["advanced/security_practice", "Best Security Practices"],
                     ["advanced/render_event", "View render event"]
                 ]
-            },
-            {
-                title: "Bagisto Web API",
-                path: "/api/",
-                collapsable: true,
-                children: [
-                    ["api/customer_addresses", "Addresses"],
-                    ["api/categories", "Categories"],
-                    ["api/customers", "Customers"],
-                    ["api/customer_review", "Customer reviews"],
-                    ["api/invoice_shipment", "Invoices & Shipments"],
-                    ["api/order", "Orders"],
-                    ["api/products", "Products"],
-                    ["api/product_review", "Product reviews"],
-                    ["api/cart", "Shopping cart"]
-                ]
-            },
-            {
-                title: "Deploy",
-                path: "/deploy/",
-                collapsable: true
-            },
-            {
-                title: "Package Development ",
-                path: "/packages/create",
-                collapsable: true,
-            },            
+            },           
             {
                 title: "Themes",
                 path: "/themes",
@@ -92,6 +71,27 @@ module.exports = {
                 collapsable: true,
                 children: [
                     ["/user_guides/cart_rule", "Cart rules"],
+                ]
+            },
+            {
+                title: "Deploy",
+                path: "/deploy/",
+                collapsable: true
+            }, 
+            {
+                title: "Bagisto Web API",
+                path: "/api/",
+                collapsable: true,
+                children: [
+                    ["api/customer_addresses", "Addresses"],
+                    ["api/categories", "Categories"],
+                    ["api/customers", "Customers"],
+                    ["api/customer_review", "Customer reviews"],
+                    ["api/invoice_shipment", "Invoices & Shipments"],
+                    ["api/order", "Orders"],
+                    ["api/products", "Products"],
+                    ["api/product_review", "Product reviews"],
+                    ["api/cart", "Shopping cart"]
                 ]
             },
         ]
