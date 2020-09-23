@@ -72,11 +72,6 @@ module.exports = {
                 children: [
                     ["/user_guides/cart_rule", "Cart rules"],
                 ]
-            },
-            {
-                title: "Deploy",
-                path: "/deploy/",
-                collapsable: true
             }, 
             {
                 title: "Bagisto Web API",
