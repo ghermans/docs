@@ -55,8 +55,7 @@ This api request will fetch all the categories based on the `limit` and `page` p
           {...},
           {...}
       ],
-      "links":
-      {
+      "links": {
           "first": "https://example.com/api/categories?page=1",
           "last": "https://example.com/api/categories?page=1",
           "prev": null,
@@ -243,7 +242,7 @@ If you don't want to use the pagination and want to access all the store's categ
 
 ## Get specific category
 
-For fetching any specific category, you have to provide the category's id as as input parameter.
+For fetching any specific category, you have to provide the category's id as an input parameter.
 
   - Request
 
@@ -254,6 +253,14 @@ For fetching any specific category, you have to provide the category's id as as 
     | Name          | Info               | Type   |
     | ------------- |:------------------:| ------ |
     | category-id   | id of the category | Number |
+
+  ### Examples
+
+  #### 1. Let's try to fetch category by id
+
+  - Request
+
+    `GET <host>/api/categories/6`
 
   ::: details Response
 
